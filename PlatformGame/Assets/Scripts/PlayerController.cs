@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+	public bool aleave;
 	public float speed = 2f;
 	public float maxSpeed = 5f;
 	public bool grounded;
 	public float jumpPower = 6.5f;
+	public float life = 3;
 
 	private Rigidbody2D rb;
 	private Animator anim;
@@ -79,6 +81,7 @@ public class PlayerController : MonoBehaviour {
 
 	void OnBecameInvisible(){
 		transform.position = new Vector3(-1, 0, 0);
+		life = 3;
 	}
 
 	public void EnemyJump(){
@@ -93,6 +96,11 @@ public class PlayerController : MonoBehaviour {
 		Invoke("EnableMouvement", 0.7f);
 		// Color color = new Color(R, G, B, A); /255 because 255 -> 1
 		spr.color = Color.red;
+		life = life - 1; 
+		if (life < 1) {
+			spr.color = Color.green;
+			rb.mass = 100;
+		}
 	}
 
 	void EnableMouvement(){
