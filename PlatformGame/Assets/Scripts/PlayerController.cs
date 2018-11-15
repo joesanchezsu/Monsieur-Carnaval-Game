@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour {
 	void OnBecameInvisible(){
 		transform.position = new Vector3(-1, 0, 0);
 		life = 3;
+
 	}
 
 	public void EnemyJump(){
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour {
 		life = life - 1; 
 		if (life < 1) {
 			spr.color = Color.green;
-			rb.mass = 100;
+			transform.localScale = new Vector3(1,-6, 0);
 		}
 	}
 
