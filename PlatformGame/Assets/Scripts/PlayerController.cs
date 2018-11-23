@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -9,7 +10,8 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed = 5f;
 	public bool grounded;
 	public float jumpPower = 6.5f;
-	public float life = 3;
+	public double life = 3;
+	public Text lifeText;
 
 	private Rigidbody2D rb;
 	private Animator anim;
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 		spr = GetComponent<SpriteRenderer>();
+        UpDateTextLife();
 	}
 	
 	// Update is called once per frame
@@ -81,7 +84,8 @@ public class PlayerController : MonoBehaviour {
 
 	void OnBecameInvisible(){
 		transform.position = new Vector3(-1, 0, 0);
-		life = 3;
+		life = life-1;
+        UpDateTextLife();
 
 	}
 
@@ -97,8 +101,9 @@ public class PlayerController : MonoBehaviour {
 		Invoke("EnableMouvement", 0.7f);
 		// Color color = new Color(R, G, B, A); /255 because 255 -> 1
 		spr.color = Color.red;
-		life = life - 1; 
-		if (life < 1) {
+		life = life - 0.5;
+        UpDateTextLife();
+        if (life < 0.5) {
 			spr.color = Color.green;
 			transform.localScale = new Vector3(1,-6, 0);
 		}
@@ -108,4 +113,9 @@ public class PlayerController : MonoBehaviour {
 		mouvement = true;
 		spr.color = Color.white;
 	}
+
+    void UpDateTextLife()
+    {
+        lifeText.text = "Vie restante : " + life.ToString();
+    }
 }
