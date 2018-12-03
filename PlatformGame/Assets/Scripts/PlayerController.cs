@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void EnemyKnockBack(float enemyPosX){
 		jump = true;
+        float startTime= 0.0f;
 		float side = Mathf.Sign(enemyPosX - transform.position.x);
 		rb.AddForce(Vector2.left * side * jumpPower, ForceMode2D.Impulse);
 		mouvement = false;
@@ -103,9 +104,22 @@ public class PlayerController : MonoBehaviour {
 		spr.color = Color.red;
 		life = life - 0.5;
         UpDateTextLife();
-        if (life < 0.5) {
-			spr.color = Color.green;
-			transform.localScale = new Vector3(1,-6, 0);
+        if (life < 0.5)
+        {
+            startTime = startTime + Time.deltaTime;
+            spr.color = Color.green;
+            while (startTime < 2)
+            {
+                if (spr.color == Color.green)
+                {
+                    spr.color = Color.red;
+                }
+                else
+                {
+                    spr.color = Color.green;
+                }
+            }
+			transform.localScale = new Vector3( 1 , - 1 , 0);
 		}
 	}
 
