@@ -85,9 +85,18 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnBecameInvisible(){
-		transform.position = new Vector3(-1, 0, 0);
-		life = life-1;
-        UpDateTextLife();
+        if (life < 0.5)
+        {
+            life = 3;
+            UpDateTextLife();
+            transform.position = new Vector3(System.Convert.ToSingle(-14.12), System.Convert.ToSingle(-1.28), 0);
+        }
+        else
+        {
+            transform.position = new Vector3(-1, 0, 0);
+            life = life - 1;
+            UpDateTextLife();
+        }
 
 	}
 
@@ -98,7 +107,6 @@ public class PlayerController : MonoBehaviour {
 	public void EnemyKnockBack(float enemyPosX){
 		jump = true;
         float startTime= 0.0f;
-        //float halfTime = 0.0f;
 		float side = Mathf.Sign(enemyPosX - transform.position.x);
 		rb.AddForce(Vector2.left * side * jumpPower, ForceMode2D.Impulse);
 		mouvement = false;
@@ -117,9 +125,6 @@ public class PlayerController : MonoBehaviour {
                 transform.localPosition = transform.position + new Vector3(0, System.Convert.ToSingle(down), 0);
                 startTime = startTime + Time.deltaTime;
             }
-            //transform.localScale = new Vector3( 1 , 1 , 0);
-            //transform.localPosition = transform.position + new Vector3(0,-1,0);
-            //transform.TransformDirection(transform.position + new Vector3(0, -25, 0));
 		}
 	}
 
