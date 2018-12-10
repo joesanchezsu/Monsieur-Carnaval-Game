@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour {
 	public float jumpPower = 6.5f;
 	public double life = 3;
 	public Text lifeText;
+   
 
-	private Rigidbody2D rb;
+
+    private Rigidbody2D rb;
 	private Animator anim;
 	private SpriteRenderer spr;
 	private bool jump; // to get the value in Update() but use it in FixedUpdate
@@ -96,6 +98,7 @@ public class PlayerController : MonoBehaviour {
 	public void EnemyKnockBack(float enemyPosX){
 		jump = true;
         float startTime= 0.0f;
+        //float halfTime = 0.0f;
 		float side = Mathf.Sign(enemyPosX - transform.position.x);
 		rb.AddForce(Vector2.left * side * jumpPower, ForceMode2D.Impulse);
 		mouvement = false;
@@ -106,20 +109,17 @@ public class PlayerController : MonoBehaviour {
         UpDateTextLife();
         if (life < 0.5)
         {
-            startTime = startTime + Time.deltaTime;
             spr.color = Color.green;
+            double down = -0.01;
             while (startTime < 2)
             {
-                if (spr.color == Color.green)
-                {
-                    spr.color = Color.red;
-                }
-                else
-                {
-                    spr.color = Color.green;
-                }
+                
+                transform.localPosition = transform.position + new Vector3(0, System.Convert.ToSingle(down), 0);
+                startTime = startTime + Time.deltaTime;
             }
-			transform.localScale = new Vector3( 1 , - 1 , 0);
+            //transform.localScale = new Vector3( 1 , 1 , 0);
+            //transform.localPosition = transform.position + new Vector3(0,-1,0);
+            //transform.TransformDirection(transform.position + new Vector3(0, -25, 0));
 		}
 	}
 
