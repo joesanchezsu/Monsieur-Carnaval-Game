@@ -9,6 +9,7 @@ public class PopUpController : MonoBehaviour {
 	public Image background;
 	public VideoPlayer video;
 	public Text skipTime;
+	public Button closeBtn;
 	private float time = 5.0f;
 
 	void Update(){
@@ -16,9 +17,11 @@ public class PopUpController : MonoBehaviour {
 		if(background.GetComponent<BackgroundController>().PopUpActive){
 			video.GetComponent<StreamVideo>().StartVideo();
 			int timeInt = (int)time;
-			if(time >= 0){
+			if(time > 0){
 				skipTime.text = "Tu peux sauter la video en " + timeInt.ToString() + " secondes ";
 				time = time - 1 * Time.deltaTime;
+			} else {
+				closeBtn.gameObject.SetActive(true);
 			}
 			
 		}
