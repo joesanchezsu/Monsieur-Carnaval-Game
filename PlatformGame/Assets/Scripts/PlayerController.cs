@@ -133,14 +133,12 @@ public class PlayerController : MonoBehaviour {
 		spr.color = Color.white;
 	}
 
-<<<<<<< HEAD
     void UpDateTextLife()
     {
         lifeText.text = "Vie restante : " + life.ToString();
     }
-=======
+
 	public void SetMoving(bool move){
 		mouvement = move;
 	}
->>>>>>> WinPoint_Level1
 }
