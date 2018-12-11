@@ -64,10 +64,10 @@ public class PlayerController : MonoBehaviour {
 		rb.velocity = new Vector2(limitedSpeed, rb.velocity.y);
 
 		if(h > 0.1f){
-			transform.localScale = new Vector3(1f, 1f, 1f);
+			transform.localScale = new Vector3(-1f, 1f, 1f);
 		}
 		if(h < -0.1f){
-			transform.localScale = new Vector3(-1f, 1f, 1f);
+			transform.localScale = new Vector3(1f, 1f, 1f);
 		}
 
 		if(jump){
