@@ -205,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   maxSpeed: 1
+  ennemy: {fileID: 0}
 --- !u!212 &212810382834002590
 SpriteRenderer:
   m_ObjectHideFlags: 1

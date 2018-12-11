@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
-            transform.position = new Vector3(-1, 0, 0);
+            transform.position = new Vector3(-8, System.Convert.ToSingle(-1.5), 0);
             life = life - 1;
             UpDateTextLife();
         }

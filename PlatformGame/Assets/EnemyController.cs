@@ -6,8 +6,11 @@ public class EnemyController : MonoBehaviour {
 
 	public float speed = 1f; // 2 variables because speed changes the direction
 	public float maxSpeed = 1f;
+    float time = 0.0f;
+    int randonTime = 4;
+    public GameObject ennemy; 
 
-	private Rigidbody2D rb;
+    private Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +19,7 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        time = time + Time.deltaTime;
 		rb.AddForce(Vector2.right * speed);
 
 		float limitedSpeed = Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed);
@@ -26,6 +30,14 @@ public class EnemyController : MonoBehaviour {
 			transform.localScale = new Vector3(speed > 0 ? -1 : 1, 1, 1);
 			rb.velocity = new Vector2(speed, rb.velocity.y);
 		}
+        if (time > randonTime)
+        {
+            Instantiate(ennemy, transform.TransformPoint(System.Convert.ToSingle(0), 6, 0), transform.rotation);
+            //randonTime = Random.RandomRange(5, 15);
+            time = 0;
+            Debug.Log(randonTime);
+            Debug.Log(time);
+        }
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
