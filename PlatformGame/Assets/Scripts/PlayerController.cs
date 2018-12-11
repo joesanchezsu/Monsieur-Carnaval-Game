@@ -99,4 +99,8 @@ public class PlayerController : MonoBehaviour {
 		mouvement = true;
 		spr.color = Color.white;
 	}
+
+	public void SetMoving(bool move){
+		mouvement = move;
+	}
 }
