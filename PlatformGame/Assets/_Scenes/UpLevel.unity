@@ -294,6 +294,12 @@ Prefab:
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 1059163668}
+    - target: {fileID: 114358260405642074, guid: d57a604bf6d181c43abaf63fd8ff7225,
+        type: 2}
+      propertyPath: ennemy
+      value: 
+      objectReference: {fileID: 1202447382037884, guid: ca032bf3b2c3e4feeaaa78abc77b44ec,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d57a604bf6d181c43abaf63fd8ff7225, type: 2}
   m_IsPrefabParent: 0
