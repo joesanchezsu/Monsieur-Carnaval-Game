@@ -12,7 +12,10 @@ public class PlayerController : MonoBehaviour {
 	public float jumpPower = 6.5f;
 	public double life = 3;
 	public Text lifeText;
-   
+    public GameObject ennemy;
+    float time = 0.0f;
+    int randonTime = 4;
+
 
 
     private Rigidbody2D rb;
@@ -82,7 +85,16 @@ public class PlayerController : MonoBehaviour {
 			rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
 			jump = false;
 		}
-	}
+        time = time + Time.deltaTime;
+        if (time > randonTime)
+        {
+            Instantiate(ennemy, transform.TransformPoint(System.Convert.ToSingle(16), 6, 0), transform.rotation);
+            randonTime = Random.RandomRange(5, 15);
+            time = 0;
+            Debug.Log(randonTime);
+            Debug.Log(time);
+        }
+    }
 
 	void OnBecameInvisible(){
         if (life < 0.5)
