@@ -149,4 +149,9 @@ public class PlayerController : MonoBehaviour {
     {
         lifeText.text = "Vie restante : " + life.ToString();
     }
+
+	public void SetMoving(bool move){
+		mouvement = move;
+	}
+
 }
