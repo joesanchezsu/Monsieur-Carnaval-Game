@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed = 5f;
 	public bool grounded;
 	public float jumpPower = 6.5f;
+	public Rigidbody2D arrow;
 
 	private Rigidbody2D rb;
 	private Animator anim;
@@ -25,14 +26,14 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		anim.SetFloat("speed", Mathf.Abs(rb.velocity.x));
+		//anim.SetFloat("speed", Mathf.Abs(rb.velocity.x));
 		anim.SetBool("grounded", grounded);
 
 		if(grounded){
 			doubleJump = true; // one jump on memory (warning jump ^^)
 		}
 
-		if(Input.GetKeyDown(KeyCode.Space)){
+		if(Input.GetKeyDown(KeyCode.UpArrow)){
 			if(grounded){
 				jump = true; 
 				doubleJump = true;
@@ -40,8 +41,12 @@ public class PlayerController : MonoBehaviour {
 				jump = true;
 				doubleJump = false;
 			}
-			
 		}
+		if(Input.GetKeyDown(KeyCode.Space)){
+			anim.SetBool("arrow", true);
+			StartCoroutine(Shoot());
+		}
+		anim.SetFloat("speed", Mathf.Abs(rb.velocity.x));
 	}
 
 	void FixedUpdate(){
@@ -76,6 +81,19 @@ public class PlayerController : MonoBehaviour {
 			jump = false;
 		}
 	}
+
+	IEnumerator Shoot()
+    {
+        yield return new WaitForSeconds(0.41f);
+		Rigidbody2D clone;
+		Vector3 pos = new Vector3(transform.position.x, transform.position.y + 0.34f, transform.position.z);
+		clone = Instantiate(arrow, pos, transform.rotation) as Rigidbody2D;
+		clone.transform.localScale = new Vector3(gameObject.transform.localScale.x, 1f, 1f);
+		clone.velocity = transform.TransformDirection(new Vector3(-10f * gameObject.transform.localScale.x, 1f, 1f));
+		//yield return new WaitForSeconds(0.1f);
+        anim.SetBool("arrow", false);
+    }
+
 
 	void OnBecameInvisible(){
 		transform.position = new Vector3(-1, 0, 0);
