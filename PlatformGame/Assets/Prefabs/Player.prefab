@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1836030367569962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.25, y: 2.42, z: 0}
+  m_LocalPosition: {x: -14.11, y: -0.93, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4598248614548838}
@@ -157,6 +157,8 @@ MonoBehaviour:
   maxSpeed: 3
   grounded: 0
   jumpPower: 7
+  life: 3
+  arrow: {fileID: 50955865320818822, guid: e92fdddcf897641838472058bc7a6871, type: 2}
 --- !u!114 &114324537316109122
 MonoBehaviour:
   m_ObjectHideFlags: 1

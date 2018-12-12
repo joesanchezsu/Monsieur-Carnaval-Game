@@ -35,12 +35,17 @@ public class EnemyController : MonoBehaviour {
 			float yOffset = 0.25f;
 			if(transform.position.y + yOffset < col.transform.position.y){
 				col.SendMessage("EnemyJump");
-				Destroy(gameObject);
+				gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
+				gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
 			} else {
 				col.SendMessage("EnemyKnockBack", transform.position.x);
 			}
 		} else if(col.gameObject.tag == "Arrow"){
 			//Destroy(gameObject);
 		}
+	}
+
+	void OnBecameInvisible(){
+		Destroy(gameObject);
 	}
 }
