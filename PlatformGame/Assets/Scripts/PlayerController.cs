@@ -15,9 +15,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject ennemy;
     float time = 0.0f;
     int randonTime = 4;
-
-
-
+    public Vector3 positionEnnemy = new Vector3(8, 6, 0);
     private Rigidbody2D rb;
 	private Animator anim;
 	private SpriteRenderer spr;
@@ -55,7 +53,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		Vector3 fixedVelocity = rb.velocity;
+        positionEnnemy = new Vector3(8, 6, 0);
+        Vector3 fixedVelocity = rb.velocity;
 		fixedVelocity.x *= 0.75f; // it affects only X! OJO!!
 
 		if(grounded){
@@ -85,19 +84,22 @@ public class PlayerController : MonoBehaviour {
 			rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
 			jump = false;
 		}
-        time = time + Time.deltaTime;
-        if (time > randonTime)
+        if (ennemy != null)
         {
-            Instantiate(ennemy, transform.TransformPoint(System.Convert.ToSingle(16), 6, 0), transform.rotation);
-            randonTime = Random.RandomRange(5, 15);
-            time = 0;
-            Debug.Log(randonTime);
-            Debug.Log(time);
+            time = time + Time.deltaTime;
+            if (time > randonTime)
+            {
+                Instantiate(ennemy, positionEnnemy, transform.rotation);
+                randonTime = Random.RandomRange(5, 15);
+                time = 0;
+                Debug.Log(randonTime);
+                Debug.Log(positionEnnemy);
+            }
         }
     }
 
 	void OnBecameInvisible(){
-        if (life < 0.5)
+        if (life == 0)
         {
             life = 3;
             UpDateTextLife();
