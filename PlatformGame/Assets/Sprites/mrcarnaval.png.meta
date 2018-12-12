@@ -1,0 +1,497 @@
+fileFormatVersion: 2
+guid: f67a0fab0d3b540ffa963d61f2db7a62
+timeCreated: 1544624124
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: mrcarnaval_0
+    21300002: mrcarnaval_1
+    21300004: mrcarnaval_2
+    21300006: mrcarnaval_3
+    21300008: mrcarnaval_4
+    21300010: mrcarnaval_5
+    21300012: mrcarnaval_6
+    21300014: mrcarnaval_7
+    21300016: mrcarnaval_8
+    21300018: mrcarnaval_9
+    21300020: mrcarnaval_10
+    21300022: mrcarnaval_11
+    21300024: mrcarnaval_12
+    21300026: mrcarnaval_13
+    21300028: mrcarnaval_14
+    21300030: mrcarnaval_15
+    21300032: mrcarnaval_16
+    21300034: mrcarnaval_17
+    21300036: mrcarnaval_18
+    21300038: mrcarnaval_19
+    21300040: mrcarnaval_20
+    21300042: mrcarnaval_21
+    21300044: mrcarnaval_22
+    21300046: mrcarnaval_23
+    21300048: mrcarnaval_24
+    21300050: mrcarnaval_25
+    21300052: mrcarnaval_26
+    21300054: mrcarnaval_27
+    21300056: mrcarnaval_28
+    21300058: mrcarnaval_29
+    21300060: mrcarnaval_30
+    21300062: mrcarnaval_31
+    21300064: mrcarnaval_32
+    21300066: mrcarnaval_33
+    21300068: mrcarnaval_34
+    21300070: mrcarnaval_35
+    21300072: mrcarnaval_36
+    21300074: mrcarnaval_37
+    21300076: mrcarnaval_38
+    21300078: mrcarnaval_39
+    21300080: mrcarnaval_40
+    21300082: mrcarnaval_41
+    21300084: mrcarnaval_42
+    21300086: mrcarnaval_43
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mrcarnaval_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3073
+        width: 240
+        height: 479
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 3050
+        width: 4
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_8
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 3026
+        width: 6
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2565
+        width: 237
+        height: 478
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_10
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 2565
+        width: 234
+        height: 478
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_11
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 2565
+        width: 227
+        height: 482
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_12
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 2518
+        width: 38
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_13
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 2518
+        width: 18
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_14
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 2053
+        width: 234
+        height: 478
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_15
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 2053
+        width: 250
+        height: 480
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_16
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 2055
+        width: 281
+        height: 482
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_17
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 2055
+        width: 253
+        height: 482
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_18
+      rect:
+        serializedVersion: 2
+        x: 2216
+        y: 2053
+        width: 237
+        height: 478
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_19
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 2502
+        width: 9
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_20
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 2035
+        width: 9
+        height: 7
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_22
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 1540
+        width: 321
+        height: 497
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_23
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 1544
+        width: 246
+        height: 507
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_24
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 2023
+        width: 6
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1547
+        width: 237
+        height: 478
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_26
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 1543
+        width: 234
+        height: 481
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1045
+        width: 237
+        height: 478
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_33
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1031
+        width: 268
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_34
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 1020
+        width: 375
+        height: 517
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_35
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 1027
+        width: 592
+        height: 510
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_39
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 525
+        width: 237
+        height: 478
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_40
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 519
+        width: 266
+        height: 494
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_41
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 519
+        width: 261
+        height: 403
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_42
+      rect:
+        serializedVersion: 2
+        x: 1683
+        y: 511
+        width: 266
+        height: 418
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mrcarnaval_43
+      rect:
+        serializedVersion: 2
+        x: 2111
+        y: 511
+        width: 451
+        height: 201
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

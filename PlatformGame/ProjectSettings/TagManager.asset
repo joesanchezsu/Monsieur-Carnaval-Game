@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Ground
   - Platform
-  - ennemy
   - Arrow
+  - Enemy
   layers:
   - Default
   - TransparentFX

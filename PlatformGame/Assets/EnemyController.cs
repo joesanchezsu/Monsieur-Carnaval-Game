@@ -28,7 +28,6 @@ public class EnemyController : MonoBehaviour {
 			transform.localScale = new Vector3(speed > 0 ? -1 : 1, 1, 1);
 			rb.velocity = new Vector2(speed, rb.velocity.y);
 		}
-        
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
@@ -40,6 +39,8 @@ public class EnemyController : MonoBehaviour {
 			} else {
 				col.SendMessage("EnemyKnockBack", transform.position.x);
 			}
+		} else if(col.gameObject.tag == "Arrow"){
+			//Destroy(gameObject);
 		}
 	}
 }
