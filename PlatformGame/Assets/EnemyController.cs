@@ -17,7 +17,6 @@ public class EnemyController : MonoBehaviour {
 		anim = GetComponent<Animator>();
 	}
 	
-	// Update is called once per frame
 	void FixedUpdate () {
 		rb.AddForce(Vector2.right * speed);
 		float limitedSpeed = Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed);
@@ -36,14 +35,19 @@ public class EnemyController : MonoBehaviour {
 			// if player is on it, it dies crushed
 			if(transform.position.y + yOffset < col.transform.position.y){
 				anim.SetBool("crushed", true);
-				Invoke("Fall", 0.25f);
-				col.SendMessage("EnemyJump");
-			} else {
+				Invoke("Fall", 0.25f); // Fall after 0.25 seconds
+				col.SendMessage("EnemyJump"); // Rebound
+			}
+			// Knockback for player and life reduction 
+			else {
 				col.SendMessage("EnemyKnockBack", transform.position.x);
 			}
 		} else if(col.gameObject.tag == "Arrow"){
-			anim.SetBool("hit", true);
-			Invoke("Fall", 0.25f);
+			// Arrow only kills when it has more horizontal velocity (to avoid killing after rebounding)
+			if(rb.velocity.x < col.GetComponent<Rigidbody2D>().velocity.x){
+				anim.SetBool("hit", true);
+				Invoke("Fall", 0.25f);
+			}
 		}
 	}
 
