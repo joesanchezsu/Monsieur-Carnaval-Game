@@ -36,13 +36,14 @@ public class EnemyController : MonoBehaviour {
 			// if player is on it, it dies crushed
 			if(transform.position.y + yOffset < col.transform.position.y){
 				anim.SetBool("crushed", true);
-				Invoke("Fall", 0.5f);
+				Invoke("Fall", 0.25f);
 				col.SendMessage("EnemyJump");
 			} else {
 				col.SendMessage("EnemyKnockBack", transform.position.x);
 			}
 		} else if(col.gameObject.tag == "Arrow"){
-			//Destroy(gameObject);
+			anim.SetBool("hit", true);
+			Invoke("Fall", 0.25f);
 		}
 	}
 

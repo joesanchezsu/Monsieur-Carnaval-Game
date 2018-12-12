@@ -5,8 +5,11 @@ using UnityEngine;
 public class ArrowController : MonoBehaviour {
 
 	void OnCollisionStay2D(Collision2D col){
-		if(col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Enemy")){
+		if(col.gameObject.CompareTag("Ground")){
 			Invoke("DestroyArrow", 1f);
+		}
+		else if(col.gameObject.CompareTag("Enemy")){
+			DestroyArrow();
 		}
 	}
 
