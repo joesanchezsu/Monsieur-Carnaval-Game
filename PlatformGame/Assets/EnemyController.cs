@@ -9,17 +9,17 @@ public class EnemyController : MonoBehaviour {
 
 
     private Rigidbody2D rb;
+	private Animator anim;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        
 		rb.AddForce(Vector2.right * speed);
-
 		float limitedSpeed = Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed);
 		rb.velocity = new Vector2(limitedSpeed, rb.velocity.y);
 
@@ -33,10 +33,11 @@ public class EnemyController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.gameObject.tag == "Player"){
 			float yOffset = 0.25f;
+			// if player is on it, it dies crushed
 			if(transform.position.y + yOffset < col.transform.position.y){
+				anim.SetBool("crushed", true);
+				Invoke("Fall", 0.5f);
 				col.SendMessage("EnemyJump");
-				gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
-				gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
 			} else {
 				col.SendMessage("EnemyKnockBack", transform.position.x);
 			}
@@ -45,7 +46,14 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 
+	void Fall(){
+		gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
+		gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+	}
+
 	void OnBecameInvisible(){
-		Destroy(gameObject);
+		if(gameObject.transform.position.y < -10f){
+			Destroy(gameObject);
+		}
 	}
 }
