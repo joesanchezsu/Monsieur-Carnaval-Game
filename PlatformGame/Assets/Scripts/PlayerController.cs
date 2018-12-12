@@ -9,15 +9,15 @@ public class PlayerController : MonoBehaviour {
     public float maxSpeed = 5f;
     public bool grounded;
     public float jumpPower = 6.5f;
-    public double life = 3;
-    public Text lifeText;
-    public GameObject ennemy;
-    float time = 0.0f;
-    int randonTime = 4;
-    public Vector3 positionEnnemy = new Vector3(8, 6, 0);
-    private Rigidbody2D rb;
+    public float life = 3f;
+    //public Text lifeText;
+    //public GameObject ennemy;
+    //float time = 0.0f;
+    //int randonTime = 4;
+    //public Vector3 positionEnnemy = new Vector3(8, 6, 0);
     public Rigidbody2D arrow;
 
+	private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer spr;
     private bool jump; // to get the value in Update() but use it in FixedUpdate
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
-        UpDateTextLife();
+        //UpDateTextLife();
     }
 
     // Update is called once per frame
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        positionEnnemy = new Vector3(8, 6, 0);
+        //positionEnnemy = new Vector3(8, 6, 0);
         Vector3 fixedVelocity = rb.velocity;
         fixedVelocity.x *= 0.75f; // it affects only X! OJO!!
 
@@ -89,34 +89,33 @@ public class PlayerController : MonoBehaviour {
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             jump = false;
         }
-        if (ennemy != null)
-        {
-            time = time + Time.deltaTime;
-            if (time > randonTime)
-            {
-                Instantiate(ennemy, positionEnnemy, transform.rotation);
-                randonTime = Random.Range(5, 15);
-                time = 0;
-                Debug.Log(randonTime);
-                Debug.Log(positionEnnemy);
-            }
-        }
+        // if (ennemy != null)
+        // {
+        //     time = time + Time.deltaTime;
+        //     if (time > randonTime)
+        //     {
+        //         Instantiate(ennemy, positionEnnemy, transform.rotation);
+        //         randonTime = Random.Range(5, 15);
+        //         time = 0;
+        //         Debug.Log(randonTime);
+        //         Debug.Log(positionEnnemy);
+        //     }
+        // }
     }
+
     void OnBecameInvisible()
     {
-        if (life == 0)
-        {
+        if (life == 0){
             life = 3;
             UpDateTextLife();
             transform.position = new Vector3(System.Convert.ToSingle(-14.12), System.Convert.ToSingle(-1.28), 0);
-        }
-        else
-        {
+        } else {
             transform.position = new Vector3(-8, System.Convert.ToSingle(-1.5), 0);
             life = life - 1;
             UpDateTextLife();
         }
     }
+
 	void Shoot(){
 		Rigidbody2D clone;
 		Vector3 pos = new Vector3(transform.position.x, transform.position.y + 0.34f, transform.position.z);
@@ -132,26 +131,23 @@ public class PlayerController : MonoBehaviour {
 
 	public void EnemyKnockBack(float enemyPosX){
 		jump = true;
-        float startTime = 0.0f;
+        //float startTime = 0.0f;
         float side = Mathf.Sign(enemyPosX - transform.position.x);
 		rb.AddForce(Vector2.left * side * jumpPower, ForceMode2D.Impulse);
 		mouvement = false;
 		Invoke("EnableMouvement", 0.7f);
 		// Color color = new Color(R, G, B, A); /255 because 255 -> 1
 		spr.color = Color.red;
-        life = life - 0.5;
-        UpDateTextLife();
-        if (life < 0.5)
-        {
-            spr.color = Color.green;
-            double down = -0.01;
-            while (startTime < 2)
-            {
-
-                transform.localPosition = transform.position + new Vector3(0, System.Convert.ToSingle(down), 0);
-                startTime = startTime + Time.deltaTime;
-            }
-        }
+        //life = life - 0.5f;
+        //UpDateTextLife();
+        // if (life < 0.5){
+        //     spr.color = Color.green;
+        //     double down = -0.01;
+        //     while (startTime < 2){
+        //         transform.localPosition = transform.position + new Vector3(0, System.Convert.ToSingle(down), 0);
+        //         startTime = startTime + Time.deltaTime;
+        //     }
+        // }
     }
 
 	void EnableMouvement(){
@@ -162,8 +158,8 @@ public class PlayerController : MonoBehaviour {
 	public void SetMoving(bool move){
 		mouvement = move;
 	}
-    public void UpDateTextLife()
-    {
-        lifeText.text = "Vie restante : " + life.ToString() ;
+
+    public void UpDateTextLife(){
+        //lifeText.text = "Vie restante : " + life.ToString() ;
     }
 }
