@@ -7,21 +7,21 @@ public class EnemyController : MonoBehaviour {
 	public float speed = 1f; // 2 variables because speed changes the direction
 	public float maxSpeed = 1f;
 
-
     private Rigidbody2D rb;
 	private Animator anim;
 
-	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 	}
 	
 	void FixedUpdate () {
+		// It moves constantly
 		rb.AddForce(Vector2.right * speed);
 		float limitedSpeed = Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed);
 		rb.velocity = new Vector2(limitedSpeed, rb.velocity.y);
 
+		// When it find a wall, change direction
 		if(rb.velocity.x > -0.01f && rb.velocity.x < 0.01f){
 			speed = -speed;
 			transform.localScale = new Vector3(speed > 0 ? -1 : 1, 1, 1);
