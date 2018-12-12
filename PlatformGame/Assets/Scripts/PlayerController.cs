@@ -51,9 +51,10 @@ public class PlayerController : MonoBehaviour {
             }
         }
         if (Input.GetKeyDown(KeyCode.Space)) {
-            anim.SetBool("arrow", true);
-            //StartCoroutine(Shoot());
-			Invoke("Shoot", 0.41f); // shoot an arrow after 0.41 seconds
+			if(anim.GetBool("arrow") == false){
+				anim.SetBool("arrow", true);
+				Invoke("Shoot", 0.60f); // shoot an arrow after 0.41 seconds
+			}
         }
     }
 
