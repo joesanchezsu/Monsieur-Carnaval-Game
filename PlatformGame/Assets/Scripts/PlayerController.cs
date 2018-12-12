@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //anim.SetFloat("speed", Mathf.Abs(rb.velocity.x));
+        anim.SetFloat("speed", Mathf.Abs(rb.velocity.x));
         anim.SetBool("grounded", grounded);
 
         if (grounded) {
@@ -52,9 +52,9 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Space)) {
             anim.SetBool("arrow", true);
-            StartCoroutine(Shoot());
+            //StartCoroutine(Shoot());
+			Invoke("Shoot", 0.41f); // shoot an arrow after 0.41 seconds
         }
-        anim.SetFloat("speed", Mathf.Abs(rb.velocity.x));
     }
 
     void FixedUpdate() {
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour {
             if (time > randonTime)
             {
                 Instantiate(ennemy, positionEnnemy, transform.rotation);
-                randonTime = Random.RandomRange(5, 15);
+                randonTime = Random.Range(5, 15);
                 time = 0;
                 Debug.Log(randonTime);
                 Debug.Log(positionEnnemy);
@@ -117,22 +117,14 @@ public class PlayerController : MonoBehaviour {
             UpDateTextLife();
         }
     }
-	IEnumerator Shoot()
-    {
-        yield return new WaitForSeconds(0.41f);
+	void Shoot(){
 		Rigidbody2D clone;
 		Vector3 pos = new Vector3(transform.position.x, transform.position.y + 0.34f, transform.position.z);
 		clone = Instantiate(arrow, pos, transform.rotation) as Rigidbody2D;
 		clone.transform.localScale = new Vector3(gameObject.transform.localScale.x, 1f, 1f);
 		clone.velocity = transform.TransformDirection(new Vector3(-10f * gameObject.transform.localScale.x, 1f, 1f));
-		//yield return new WaitForSeconds(0.1f);
         anim.SetBool("arrow", false);
     }
-
-
-	/*void OnBecameInvisible(){
-		transform.position = new Vector3(-1, 0, 0);
-	}*/
 
 	public void EnemyJump(){
 		jump = true;
