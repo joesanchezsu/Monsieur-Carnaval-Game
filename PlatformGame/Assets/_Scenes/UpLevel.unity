@@ -921,6 +921,7 @@ GameObject:
   - component: {fileID: 670468316}
   - component: {fileID: 670468315}
   - component: {fileID: 670468314}
+  - component: {fileID: 670468319}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -958,7 +959,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.26345292, g: 0.2487024, b: 0.6764706, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.22870183, b: 0.60294116, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -998,6 +999,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &670468319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 670468313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be48b67aa799c4ecfb0df47e1c98efc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetToFollow: {fileID: 113939460}
+  minCamPos: {x: 0, y: 0}
+  maxCamPos: {x: 50, y: 1000}
+  smoothTime: 0
 --- !u!1001 &750137326
 Prefab:
   m_ObjectHideFlags: 0
