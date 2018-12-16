@@ -10,7 +10,7 @@ public class WinPoint : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.gameObject.tag == "Player"){
-			col.GetComponent<PlayerController>().SetMoving(false);
+			//col.GetComponent<PlayerController>().SetMoving(false);
 			gameObject.SetActive(false);
 			ShowPopUp();
 		}

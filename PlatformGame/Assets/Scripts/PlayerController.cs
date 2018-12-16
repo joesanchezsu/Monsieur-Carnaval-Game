@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour {
     private bool mouvement = true;
     private int health;
     private int checkpoint;
+    private bool isDead = false;
+    private Restart restart;
 
     // Use this for initialization
     void Start() {
@@ -35,16 +37,25 @@ public class PlayerController : MonoBehaviour {
         spr = GetComponent<SpriteRenderer>();
         health = maxHealth;
         healthBar.GetComponent<HealthController>().SetHealth(health);
+        restart = GetComponent<Restart>();
     }
 
     // Update is called once per frame
     void Update() {
         anim.SetFloat("speed", Mathf.Abs(rb.velocity.x));
         anim.SetBool("grounded", grounded);
+        anim.SetBool("dead", isDead);
 
         if (grounded) {
             doubleJump = true; // one jump on memory (warning jump ^^)
         }
+
+        // Restart level
+        if(gameOverPopUp.GetComponent<GameOverController>().GetRestartLevel()){
+            SetMoving(true);
+            restart.Replay = true;
+        }
+        // else go home
 
 		// To Jump (and double jump)
         if (Input.GetKeyDown(KeyCode.UpArrow)) {
@@ -58,7 +69,7 @@ public class PlayerController : MonoBehaviour {
         }
 
 		// To Shoot an arrow
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space) && !isDead) {
 			if(anim.GetBool("arrow") == false){
 				anim.SetBool("arrow", true);
 				Invoke("Shoot", 0.60f); // shoot an arrow after 0.41 seconds
@@ -67,14 +78,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if(gameOverPopUp.GetComponent<GameOverController>().GetRestart()){
-            Respawn(0);
-        }
-        // else restart game
-        //positionEnnemy = new Vector3(8, 6, 0);
         Vector3 fixedVelocity = rb.velocity;
         fixedVelocity.x *= 0.75f; // it affects only X!
 
+        // Reduce velocity because of the inertia
         if (grounded) {
             rb.velocity = fixedVelocity;
         }
@@ -86,7 +93,8 @@ public class PlayerController : MonoBehaviour {
         if (!mouvement) {
             h = 0;
         }
-		// Set velocity
+
+		// Set velocity according to the keyboard input
         rb.AddForce(Vector2.right * speed * h);
         float limitedSpeed = Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed);
         rb.velocity = new Vector2(limitedSpeed, rb.velocity.y);
@@ -105,6 +113,7 @@ public class PlayerController : MonoBehaviour {
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             jump = false;
         }
+
         // if (ennemy != null)
         // {
         //     time = time + Time.deltaTime;
@@ -119,32 +128,23 @@ public class PlayerController : MonoBehaviour {
         // }
     }
 
+    // Die by falling down
     void OnBecameInvisible() {
-        if (health <= 0){ // Game over
-            gameOverPopUp.GetComponent<GameOverController>().ShowPopUp();
+        health -= 2;
+        if(healthBar != null){
             healthBar.GetComponent<HealthController>().SetHealth(health);
+        }
+        if (health <= 0){ // Game over
+            Die();
         } else { // mejorar con los checkpoints 
-            checkpoint = 1;
-            Respawn(checkpoint);
+            Respawn();
         }
     }
 
-    void Respawn(int cp){
-        if(cp == 0){
-            gameOverPopUp.GetComponent<GameOverController>().HidePopUp();
-            health = maxHealth;
-            if(healthBar != null){
-                healthBar.GetComponent<HealthController>().SetHealth(health);
-            }
-            transform.position = new Vector3(-14.05f, -1.46f, 0f);
-            SetMoving(true);
-        } else {
-            health -= 2;
-            if(healthBar != null){
-                healthBar.GetComponent<HealthController>().SetHealth(health);
-            }
-            transform.position = new Vector3(-5f, -1.46f, 0);
-        }
+    void Respawn(){
+        // Switch Checkpoints
+        transform.position = new Vector3(-5f, -1.46f, 0);
+        transform.localScale = new Vector3(-1f, 1f, 1f);
     }
 
 	void Shoot(){
@@ -158,36 +158,36 @@ public class PlayerController : MonoBehaviour {
         anim.SetBool("arrow", false); // stop animation
     }
 
+    // Rebound after kill it
 	public void EnemyJump(){
 		jump = true;
 	}
 
 	public void EnemyKnockBack(float enemyPosX){
-		jump = true;
-        //float startTime = 0.0f;
-        float side = Mathf.Sign(enemyPosX - transform.position.x);
-		rb.AddForce(Vector2.left * side * jumpPower, ForceMode2D.Impulse);
-		mouvement = false;
-		Invoke("EnableMouvement", 0.7f);
-		// Color color = new Color(R, G, B, A); /255 because 255 -> 1
-		spr.color = Color.red;
+		// Update healthbar
         health--;
         healthBar.GetComponent<HealthController>().SetHealth(health);
-        //if(life < 1.5){
-            //spr.color = Color.green;
-            //gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
-            //gameObject.GetComponentInChildren<CircleCollider2D>().isTrigger = true;
-            // Invoke("Respawn", 2f);
-        //}
-        //UpDateTextLife();
-        // if (life < 0.5){
-        //     spr.color = Color.green;
-        //     double down = -0.01;
-        //     while (startTime < 2){
-        //         transform.localPosition = transform.position + new Vector3(0, System.Convert.ToSingle(down), 0);
-        //         startTime = startTime + Time.deltaTime;
-        //     }
-        // }
+        // Die by enemy
+        if(health <= 0){
+            isDead = true;
+            SetMoving(false);
+            jumpPower = 0;
+            Invoke("Die", 2f);
+        } else {
+            jump = true;
+            float side = Mathf.Sign(enemyPosX - transform.position.x);
+            rb.AddForce(Vector2.left * side * jumpPower, ForceMode2D.Impulse);
+            mouvement = false;
+            Invoke("EnableMouvement", 0.7f);
+            // Color color = new Color(R, G, B, A); /255 because 255 -> 1
+            spr.color = Color.red;
+        }
+    }
+
+    void Die(){
+        // Change music if possible **
+        // Show Game Over pop up
+        gameOverPopUp.GetComponent<GameOverController>().ShowPopUp();
     }
 
 	void EnableMouvement(){

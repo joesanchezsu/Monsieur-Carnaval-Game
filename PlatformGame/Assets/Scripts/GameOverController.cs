@@ -11,6 +11,7 @@ public class GameOverController : MonoBehaviour {
 	public Image background;
 	private bool yesSelected = true;
 	private bool restart = false;
+	private bool quit = false;
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,7 +28,7 @@ public class GameOverController : MonoBehaviour {
 			if(yesSelected){
 				restart = true;
 			} else {
-				restart = false;
+				quit = true;
 			}
         }
 	}
@@ -35,6 +36,8 @@ public class GameOverController : MonoBehaviour {
 	public void ShowPopUp(){
 		background.GetComponent<BackgroundController>().PopUpActive = true;
         gameObject.SetActive(true);
+		restart = false;
+		quit = false;
 	}
 
 	public void HidePopUp(){
@@ -51,10 +54,14 @@ public class GameOverController : MonoBehaviour {
 	public void SelectNo(bool click){
 		answer.sprite = spriteNo;
 		yesSelected = false;
-		if(click) restart = false;
+		if(click) quit = true;
 	}
 
-	public bool GetRestart(){
+	public bool GetRestartLevel(){
 		return restart;
+	}
+
+	public bool GetQuitLevel(){
+		return quit;
 	}
 }

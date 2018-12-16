@@ -32,16 +32,18 @@ public class EnemyController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.gameObject.tag == "Player"){
 			float yOffset = 0.25f;
+			
 			// if player is on it, it dies crushed
 			if(transform.position.y + yOffset < col.transform.position.y){
 				anim.SetBool("crushed", true);
 				Invoke("Fall", 0.25f); // Fall after 0.25 seconds
 				col.SendMessage("EnemyJump"); // Rebound
 			}
-			// Knockback for player and life reduction 
+			// Knockback for player and health reduction 
 			else {
 				col.SendMessage("EnemyKnockBack", transform.position.x);
 			}
+			
 		} else if(col.gameObject.tag == "Arrow"){
 			// Arrow only kills when it has more horizontal velocity (to avoid killing after rebounding)
 			if(rb.velocity.x < col.GetComponent<Rigidbody2D>().velocity.x){
