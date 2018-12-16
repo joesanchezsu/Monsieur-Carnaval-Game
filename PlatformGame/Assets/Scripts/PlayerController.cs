@@ -9,13 +9,15 @@ public class PlayerController : MonoBehaviour {
     public float maxSpeed = 5f;
     public bool grounded;
     public float jumpPower = 6.5f;
-    public float life = 3f;
+    public int maxHealth = 6; // it have to be a pair number (10 max)
+    public GameObject healthBar;
     //public Text lifeText;
     //public GameObject ennemy;
     //float time = 0.0f;
     //int randonTime = 4;
     //public Vector3 positionEnnemy = new Vector3(8, 6, 0);
     public Rigidbody2D arrow;
+    public GameObject gameOverPopUp;
 
 	private Rigidbody2D rb;
     private Animator anim;
@@ -23,13 +25,16 @@ public class PlayerController : MonoBehaviour {
     private bool jump; // to get the value in Update() but use it in FixedUpdate
     private bool doubleJump;
     private bool mouvement = true;
+    private int health;
+    private int checkpoint;
 
     // Use this for initialization
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
-        //UpDateTextLife();
+        health = maxHealth;
+        healthBar.GetComponent<HealthController>().SetHealth(health);
     }
 
     // Update is called once per frame
@@ -62,6 +67,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        if(gameOverPopUp.GetComponent<GameOverController>().GetRestart()){
+            Respawn(0);
+        }
+        // else restart game
         //positionEnnemy = new Vector3(8, 6, 0);
         Vector3 fixedVelocity = rb.velocity;
         fixedVelocity.x *= 0.75f; // it affects only X!
@@ -110,16 +119,31 @@ public class PlayerController : MonoBehaviour {
         // }
     }
 
-    void OnBecameInvisible()
-    {
-        if (life == 0){
-            life = 3;
-            //UpDateTextLife();
-            transform.position = new Vector3(System.Convert.ToSingle(-14.12), System.Convert.ToSingle(-1.28), 0);
+    void OnBecameInvisible() {
+        if (health <= 0){ // Game over
+            gameOverPopUp.GetComponent<GameOverController>().ShowPopUp();
+            healthBar.GetComponent<HealthController>().SetHealth(health);
+        } else { // mejorar con los checkpoints 
+            checkpoint = 1;
+            Respawn(checkpoint);
+        }
+    }
+
+    void Respawn(int cp){
+        if(cp == 0){
+            gameOverPopUp.GetComponent<GameOverController>().HidePopUp();
+            health = maxHealth;
+            if(healthBar != null){
+                healthBar.GetComponent<HealthController>().SetHealth(health);
+            }
+            transform.position = new Vector3(-14.05f, -1.46f, 0f);
+            SetMoving(true);
         } else {
-            transform.position = new Vector3(-8, System.Convert.ToSingle(-1.5), 0);
-            life = life - 1;
-            //UpDateTextLife();
+            health -= 2;
+            if(healthBar != null){
+                healthBar.GetComponent<HealthController>().SetHealth(health);
+            }
+            transform.position = new Vector3(-5f, -1.46f, 0);
         }
     }
 
@@ -147,7 +171,14 @@ public class PlayerController : MonoBehaviour {
 		Invoke("EnableMouvement", 0.7f);
 		// Color color = new Color(R, G, B, A); /255 because 255 -> 1
 		spr.color = Color.red;
-        //life = life - 0.5f;
+        health--;
+        healthBar.GetComponent<HealthController>().SetHealth(health);
+        //if(life < 1.5){
+            //spr.color = Color.green;
+            //gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+            //gameObject.GetComponentInChildren<CircleCollider2D>().isTrigger = true;
+            // Invoke("Respawn", 2f);
+        //}
         //UpDateTextLife();
         // if (life < 0.5){
         //     spr.color = Color.green;
@@ -167,8 +198,4 @@ public class PlayerController : MonoBehaviour {
 	public void SetMoving(bool move){
 		mouvement = move;
 	}
-
-    public void UpdateLife(){
-        //lifeText.text = "Vie restante : " + life.ToString() ;
-    }
 }
