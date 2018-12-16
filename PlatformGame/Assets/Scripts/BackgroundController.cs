@@ -7,6 +7,8 @@ public class BackgroundController : MonoBehaviour {
 
 	public bool PopUpActive {get; set;}
 	public bool GameOverActive{get; set;}
+	private float fog = 0.5f; // decrease killing enemies and getting checkpoints
+	private float decrease = 0.1f;
 	
 	// Use this for initialization
 	void Start () {
@@ -22,7 +24,11 @@ public class BackgroundController : MonoBehaviour {
 		} else if(GameOverActive){
 			GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
 		} else {
-			GetComponent<Image>().color = new Color(1f, 1f, 1f, 0f);
+			GetComponent<Image>().color = new Color(1f, 1f, 1f, fog);
 		} 
+	}
+
+	public void SetFogByEnemy(){
+		fog -= decrease;
 	}
 }
