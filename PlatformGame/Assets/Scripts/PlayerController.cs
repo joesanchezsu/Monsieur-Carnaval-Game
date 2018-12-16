@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour {
     public float jumpPower = 6.5f;
     public int maxHealth = 6; // it have to be a pair number (10 max)
     public GameObject healthBar;
+    public GameObject arrowCounter;
+
     //public Text lifeText;
     //public GameObject ennemy;
     //float time = 0.0f;
@@ -71,8 +73,10 @@ public class PlayerController : MonoBehaviour {
 		// To Shoot an arrow
         if (Input.GetKeyDown(KeyCode.Space) && !isDead) {
 			if(anim.GetBool("arrow") == false){
-				anim.SetBool("arrow", true);
-				Invoke("Shoot", 0.60f); // shoot an arrow after 0.41 seconds
+                if(arrowCounter.GetComponent<ArrowCounter>().GetNumOfArrows() > 0){
+				    anim.SetBool("arrow", true);
+				    Invoke("Shoot", 0.60f); // shoot an arrow after 0.41 seconds
+                }
 			}
         }
     }
@@ -150,12 +154,15 @@ public class PlayerController : MonoBehaviour {
 	void Shoot(){
 		// Set position correspoding the position where the arrow go out in the animation
 		Vector3 pos = new Vector3(transform.position.x, transform.position.y + 0.34f, transform.position.z);
-		// Create clone
-		Rigidbody2D clone = Instantiate(arrow, pos, transform.rotation) as Rigidbody2D;
-		// Set direction and velocity
-		clone.transform.localScale = new Vector3(gameObject.transform.localScale.x, 1f, 1f);
-		clone.velocity = transform.TransformDirection(new Vector3(-10f * gameObject.transform.localScale.x, 1f, 1f));
-        anim.SetBool("arrow", false); // stop animation
+		// If enough arrows then create clone
+        if(arrowCounter.GetComponent<ArrowCounter>().GetNumOfArrows() > 0){
+            Rigidbody2D clone = Instantiate(arrow, pos, transform.rotation) as Rigidbody2D;
+		    // Set direction and velocity
+		    clone.transform.localScale = new Vector3(gameObject.transform.localScale.x, 1f, 1f);
+		    clone.velocity = transform.TransformDirection(new Vector3(-10f * gameObject.transform.localScale.x, 1f, 1f));
+            arrowCounter.GetComponent<ArrowCounter>().Decrease(); // Decrease arrow counter
+        }
+		anim.SetBool("arrow", false); // stop animation
     }
 
     // Rebound after kill it
