@@ -34,14 +34,14 @@ public class GameOverController : MonoBehaviour {
 	}
 	
 	public void ShowPopUp(){
-		background.GetComponent<BackgroundController>().PopUpActive = true;
+		background.GetComponent<BackgroundController>().GameOverActive = true;
         gameObject.SetActive(true);
 		restart = false;
 		quit = false;
 	}
 
 	public void HidePopUp(){
-		background.GetComponent<BackgroundController>().PopUpActive = false;
+		background.GetComponent<BackgroundController>().GameOverActive = false;
         gameObject.SetActive(false);
 	}
 

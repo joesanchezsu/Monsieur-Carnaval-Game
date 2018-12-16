@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour {
 
 	public float speed = 1f; // 2 variables because speed changes the direction
 	public float maxSpeed = 1f;
+	public int type; // 0 for red enemies, 1 for blue enemies
 
     private Rigidbody2D rb;
 	private Animator anim;
@@ -33,8 +34,8 @@ public class EnemyController : MonoBehaviour {
 		if(col.gameObject.tag == "Player"){
 			float yOffset = 0.25f;
 			
-			// if player is on it, it dies crushed
-			if(transform.position.y + yOffset < col.transform.position.y){
+			// if player is on it and it's a red enemy, it dies crushed
+			if(transform.position.y + yOffset < col.transform.position.y && type == 0){
 				anim.SetBool("crushed", true);
 				Invoke("Fall", 0.25f); // Fall after 0.25 seconds
 				col.SendMessage("EnemyJump"); // Rebound
@@ -54,8 +55,11 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void Fall(){
-		gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
-		gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+		foreach(Collider2D col in GetComponents<Collider2D>()){
+			col.isTrigger = true;
+		}
+		//gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
+		//gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
 	}
 
 	void OnBecameInvisible(){
