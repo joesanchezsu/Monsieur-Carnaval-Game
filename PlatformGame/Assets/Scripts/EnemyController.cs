@@ -14,10 +14,12 @@ public class EnemyController : MonoBehaviour {
     private Rigidbody2D rb;
 	private Animator anim;
 	private bool isDead = false;
+	private BackgroundController bgc;
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
+		bgc = background.GetComponent<BackgroundController>();
 	}
 	
 	void FixedUpdate () {
@@ -50,7 +52,7 @@ public class EnemyController : MonoBehaviour {
 				anim.SetBool("crushed", true);
 				Invoke("Fall", 0.25f); // Fall after 0.25 seconds
 				col.SendMessage("EnemyJump"); // Rebound
-				background.GetComponent<BackgroundController>().SetFogByEnemy();
+				bgc.SetFogByEnemy();
 			}
 			// Knockback for player and health reduction 
 			else {
@@ -63,7 +65,7 @@ public class EnemyController : MonoBehaviour {
 				isDead = true;
 				anim.SetBool("hit", true);
 				Invoke("Fall", 0.25f);
-				background.GetComponent<BackgroundController>().SetFogByEnemy();
+				bgc.SetFogByEnemy();
 			}
 		}
 	}
@@ -72,10 +74,6 @@ public class EnemyController : MonoBehaviour {
 		foreach(Collider2D col in GetComponents<Collider2D>()){
 			col.isTrigger = true;
 		}
-		//for(int i = 0; i < 10; i++){
-			//pointsUp.transform.Rotate(Vector3.up * Time.deltaTime);
-			//pointsUp.transform.position = new Vector3(pointsUp.transform.position.x, pointsUp.transform.position.y * Time.deltaTime, 0f);
-		//}
 	}
 
 	void OnBecameInvisible(){

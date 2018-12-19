@@ -31,4 +31,8 @@ public class BackgroundController : MonoBehaviour {
 	public void SetFogByEnemy(){
 		fog -= decrease;
 	}
+
+	public float GetFog(){
+		return fog;
+	}
 }
