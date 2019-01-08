@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour {
     private int checkpoint;
     private bool isDead = false;
     private Restart restart;
+    private Vector3 posLastCheckpoint;
 
     // Use this for initialization
     void Start() {
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour {
         health = maxHealth;
         healthBar.GetComponent<HealthController>().SetHealth(health);
         restart = GetComponent<Restart>();
+        posLastCheckpoint = new Vector3(-14f, -1.5f, 0);
     }
 
     // Update is called once per frame
@@ -147,8 +149,11 @@ public class PlayerController : MonoBehaviour {
 
     void Respawn(){
         // Switch Checkpoints
-        transform.position = new Vector3(-5f, -1.46f, 0);
+        transform.position = posLastCheckpoint;
         transform.localScale = new Vector3(-1f, 1f, 1f);
+        Invoke("EnableMouvement", 1f);
+        Color colorRespawn = new Color(1f, 1f, 1f, 0.5f); //255 because 255 -> 1
+        spr.color = colorRespawn;
     }
 
 	void Shoot(){
@@ -205,4 +210,17 @@ public class PlayerController : MonoBehaviour {
 	public void SetMoving(bool move){
 		mouvement = move;
 	}
+
+    public void GetCheckpoint(Vector3 pos){
+        posLastCheckpoint = pos;
+    }
+
+    public void WinHeart(){
+        health += 2;
+        healthBar.GetComponent<HealthController>().SetHealth(health);
+    }
+
+    public void WinArrow(){
+        arrowCounter.GetComponent<ArrowCounter>().Recharge(); // Recharge 5 arrows to the arrow counter
+    }
 }

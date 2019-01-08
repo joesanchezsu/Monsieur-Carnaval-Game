@@ -12,7 +12,7 @@ public class HealthController : MonoBehaviour {
 	private int health;
 
 	void Update(){
-		if(health > numOfHearts*2) health = numOfHearts*2;
+		//if(health > numOfHearts*2) health = numOfHearts*2;
 
 		for(int i = 0; i < hearts.Length; i++){
 			if (health - 2*i > 1) hearts[i].sprite = fullHeart;
@@ -27,5 +27,6 @@ public class HealthController : MonoBehaviour {
 	public void SetHealth(int h){
 		health = h;
 		if(numOfHearts == 0) numOfHearts = h/2;
+		if(health > numOfHearts*2 && health <= hearts.Length*2) numOfHearts++;
 	}
 }
