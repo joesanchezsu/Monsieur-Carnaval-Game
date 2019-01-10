@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class GameOverController : MonoBehaviour {
 
+	[SerializeField]
+	string hoverOverSound = "ButtonHover";
+
+	[SerializeField]
+	string pressButtonSound = "ButtonPress";
+
 	public Sprite spriteYes;
 	public Sprite spriteNo;
 	public Image answer;
@@ -12,19 +18,31 @@ public class GameOverController : MonoBehaviour {
 	private bool yesSelected = true;
 	private bool restart = false;
 	private bool quit = false;
+	AudioManager audioManager;
+
+	void Start(){
+		audioManager = AudioManager.instance;
+		if(audioManager == null){
+			Debug.LogError("No audiomanager found!");
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
 		// Choice 
 		if (Input.GetKeyDown(KeyCode.RightArrow) && yesSelected) {
 			SelectNo(false);
+			OnMouseOver();
+			
         }
 		if (Input.GetKeyDown(KeyCode.LeftArrow) && !yesSelected) {
 			SelectYes(false);
+			OnMouseOver();
         }
 
 		// Answer by Keyboard
 		if (Input.GetKeyDown(KeyCode.Return)) {
+			audioManager.PlaySound(pressButtonSound);
 			if(yesSelected){
 				restart = true;
 			} else {
@@ -48,13 +66,19 @@ public class GameOverController : MonoBehaviour {
 	public void SelectYes(bool click){
 		answer.sprite = spriteYes;
 		yesSelected = true;
-		if(click) restart = true;
+		if(click) {
+			restart = true;
+			audioManager.PlaySound(pressButtonSound);
+		}
 	}
 
 	public void SelectNo(bool click){
 		answer.sprite = spriteNo;
 		yesSelected = false;
-		if(click) quit = true;
+		if(click) {
+			quit = true;
+			audioManager.PlaySound(pressButtonSound);
+		}
 	}
 
 	public bool GetRestartLevel(){
@@ -63,5 +87,9 @@ public class GameOverController : MonoBehaviour {
 
 	public bool GetQuitLevel(){
 		return quit;
+	}
+
+	public void OnMouseOver(){
+		audioManager.PlaySound(hoverOverSound);
 	}
 }

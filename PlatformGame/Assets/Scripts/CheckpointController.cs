@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class CheckpointController : MonoBehaviour {
 
+	[SerializeField]
+	string chestOpenSound = "ChestOpen";
+	[SerializeField]
+	string rewardGotSound = "RewardGot";
+
 	public Sprite chestOpen;
 	public Sprite heart, arrow;
 	public GameObject reward;
@@ -18,9 +23,14 @@ public class CheckpointController : MonoBehaviour {
 	private bool heartWon = false;
 	private bool arrowWon = false;
 	private bool firstEnterCollision = true;
+	AudioManager audioManager;
 
 	// Use this for initialization
 	void Start () {
+		audioManager = AudioManager.instance;
+		if(audioManager == null){
+			Debug.LogError("No audiomanager found!");
+		}
 		spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 		posYStart = reward.transform.position.y;
 	}
@@ -74,6 +84,7 @@ public class CheckpointController : MonoBehaviour {
 			rewardWon = Random.Range(-1f, 1f);
 			col.SendMessage("GetCheckpoint", gameObject.transform.position);
 			if(firstEnterCollision){
+				audioManager.PlaySound(chestOpenSound);
 				Invoke("WinReward", 3f);
 				firstEnterCollision = false;
 			}
@@ -86,6 +97,6 @@ public class CheckpointController : MonoBehaviour {
 		} else if(arrowWon) {
 			player.SendMessage("WinArrow");
 		}
-		
+		audioManager.PlaySound(rewardGotSound);
 	}
 }

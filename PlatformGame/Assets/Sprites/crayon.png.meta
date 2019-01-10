@@ -1,0 +1,552 @@
+fileFormatVersion: 2
+guid: 2a2677f1529af49a9a0eb435f74015f1
+timeCreated: 1547142544
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: crayon_0
+    21300002: crayon_1
+    21300004: crayon_2
+    21300006: crayon_3
+    21300008: crayon_4
+    21300010: crayon_5
+    21300012: crayon_6
+    21300014: crayon_7
+    21300016: crayon_8
+    21300018: crayon_9
+    21300020: crayon_10
+    21300022: crayon_11
+    21300024: crayon_12
+    21300026: crayon_13
+    21300028: crayon_14
+    21300030: crayon_15
+    21300032: crayon_16
+    21300034: crayon_17
+    21300036: crayon_18
+    21300038: crayon_19
+    21300040: crayon_20
+    21300042: crayon_21
+    21300044: crayon_22
+    21300046: crayon_23
+    21300048: crayon_24
+    21300050: crayon_25
+    21300052: crayon_26
+    21300054: crayon_27
+    21300056: crayon_28
+    21300058: crayon_29
+    21300060: crayon_30
+    21300062: crayon_31
+    21300064: crayon_32
+    21300066: crayon_33
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 350
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: crayon_0
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 3075
+        width: 134
+        height: 502
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_1
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 3123
+        width: 164
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_2
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 3125
+        width: 44
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_3
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 2563
+        width: 138
+        height: 506
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_4
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 2561
+        width: 142
+        height: 520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_5
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 2557
+        width: 148
+        height: 514
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_6
+      rect:
+        serializedVersion: 2
+        x: 1693
+        y: 2561
+        width: 197
+        height: 514
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_7
+      rect:
+        serializedVersion: 2
+        x: 2224
+        y: 2563
+        width: 140
+        height: 510
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_8
+      rect:
+        serializedVersion: 2
+        x: 2749
+        y: 2555
+        width: 140
+        height: 525
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_9
+      rect:
+        serializedVersion: 2
+        x: 3251
+        y: 2560
+        width: 134
+        height: 511
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_10
+      rect:
+        serializedVersion: 2
+        x: 3784
+        y: 2552
+        width: 145
+        height: 523
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_11
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 2047
+        width: 134
+        height: 508
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_12
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 2047
+        width: 134
+        height: 508
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_13
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 2040
+        width: 176
+        height: 521
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_14
+      rect:
+        serializedVersion: 2
+        x: 2239
+        y: 2047
+        width: 138
+        height: 508
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_15
+      rect:
+        serializedVersion: 2
+        x: 3755
+        y: 2455
+        width: 93
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_16
+      rect:
+        serializedVersion: 2
+        x: 3839
+        y: 2455
+        width: 168
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_17
+      rect:
+        serializedVersion: 2
+        x: 2499
+        y: 2051
+        width: 18
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_18
+      rect:
+        serializedVersion: 2
+        x: 2521
+        y: 2048
+        width: 151
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_19
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 1533
+        width: 134
+        height: 508
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_20
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 1540
+        width: 198
+        height: 511
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_21
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 1582
+        width: 257
+        height: 371
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_22
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 1925
+        width: 22
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_23
+      rect:
+        serializedVersion: 2
+        x: 1403
+        y: 1715
+        width: 16
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_24
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 1569
+        width: 252
+        height: 210
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_25
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 1533
+        width: 67
+        height: 123
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_26
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 1541
+        width: 84
+        height: 118
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_27
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 1587
+        width: 44
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_28
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 1607
+        width: 40
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_29
+      rect:
+        serializedVersion: 2
+        x: 1880
+        y: 1637
+        width: 51
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_30
+      rect:
+        serializedVersion: 2
+        x: 2077
+        y: 1568
+        width: 62
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_31
+      rect:
+        serializedVersion: 2
+        x: 2141
+        y: 1569
+        width: 116
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_32
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 1569
+        width: 100
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crayon_33
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 1581
+        width: 35
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

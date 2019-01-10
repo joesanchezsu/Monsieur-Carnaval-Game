@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
+    [SerializeField]
+	string noiseArrow = "WhooshArrow";
+    [SerializeField]
+	string knockbackSound = "PlayerKnockBack";
+
     public float speed = 2f;
     public float maxSpeed = 5f;
     public bool grounded;
@@ -32,9 +37,15 @@ public class PlayerController : MonoBehaviour {
     private bool isDead = false;
     private Restart restart;
     private Vector3 posLastCheckpoint;
+    AudioManager audioManager;
 
     // Use this for initialization
     void Start() {
+        audioManager = AudioManager.instance;
+		if(audioManager == null){
+			Debug.LogError("No audiomanager found!");
+		}
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
@@ -157,6 +168,7 @@ public class PlayerController : MonoBehaviour {
     }
 
 	void Shoot(){
+        audioManager.PlaySound(noiseArrow);
 		// Set position correspoding the position where the arrow go out in the animation
 		Vector3 pos = new Vector3(transform.position.x, transform.position.y + 0.34f, transform.position.z);
 		// If enough arrows then create clone
@@ -176,6 +188,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void EnemyKnockBack(float enemyPosX){
+        audioManager.PlaySound(knockbackSound);
 		// Update healthbar
         health--;
         healthBar.GetComponent<HealthController>().SetHealth(health);
