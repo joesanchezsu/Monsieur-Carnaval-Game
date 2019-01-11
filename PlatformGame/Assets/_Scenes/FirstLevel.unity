@@ -570,7 +570,7 @@ Prefab:
     - target: {fileID: 114936627590912888, guid: df02789d40f364bf2b31d11e88b382bc,
         type: 2}
       propertyPath: sounds.Array.data[8].volume
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 114936627590912888, guid: df02789d40f364bf2b31d11e88b382bc,
         type: 2}
@@ -6611,10 +6611,6 @@ Prefab:
       propertyPath: background
       value: 
       objectReference: {fileID: 547603756}
-    - target: {fileID: 4124276067838840, guid: 7cba0704f17184411ad49cf800129741, type: 2}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cba0704f17184411ad49cf800129741, type: 2}
   m_IsPrefabParent: 0
@@ -6631,7 +6627,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4124276067838840, guid: 7cba0704f17184411ad49cf800129741, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.44
+      value: -2.491
       objectReference: {fileID: 0}
     - target: {fileID: 4124276067838840, guid: 7cba0704f17184411ad49cf800129741, type: 2}
       propertyPath: m_LocalPosition.z

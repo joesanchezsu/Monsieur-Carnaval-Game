@@ -56,16 +56,16 @@ public class EnemyController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.gameObject.tag == "Player"){
-			float yOffset = 0.25f;
+			float yOffset = 0.3f;
 			
-			// if player is on it and it's a red enemy, it dies crushed
+			// if player is on it and it's blue enemy, it dies crushed
 			if(transform.position.y + yOffset < col.transform.position.y && type == 0){
 				isDead = true;
 				audioManager.PlaySound(crushSound);
 				anim.SetBool("crushed", true);
 				Invoke("Fall", 0.25f); // Fall after 0.25 seconds
 				col.SendMessage("EnemyJump"); // Rebound
-				bgc.SetFogByEnemy();
+				bgc.SetFogByEnemy(); // decrease fog level 
 			}
 			// Knockback for player and health reduction 
 			else {
