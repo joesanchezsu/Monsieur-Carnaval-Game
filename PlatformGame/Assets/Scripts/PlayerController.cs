@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour {
 	string noiseArrow = "WhooshArrow";
     [SerializeField]
 	string knockbackSound = "PlayerKnockBack";
+    [SerializeField]
+	string fallSound = "PlayerFall";
+    [SerializeField]
+	string deathSound = "PlayerDeath";
 
     public float speed = 2f;
     public float maxSpeed = 5f;
@@ -147,14 +151,15 @@ public class PlayerController : MonoBehaviour {
 
     // Die by falling down
     void OnBecameInvisible() {
+        audioManager.PlaySound(fallSound);
         health -= 2;
         if(healthBar != null){
             healthBar.GetComponent<HealthController>().SetHealth(health);
         }
         if (health <= 0){ // Game over
             Die();
-        } else { // mejorar con los checkpoints 
-            Respawn();
+        } else { // checkpoint
+            Invoke("Respawn", 1f);
         }
     }
 
@@ -188,24 +193,27 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void EnemyKnockBack(float enemyPosX){
-        audioManager.PlaySound(knockbackSound);
-		// Update healthbar
-        health--;
-        healthBar.GetComponent<HealthController>().SetHealth(health);
-        // Die by enemy
-        if(health <= 0){
-            isDead = true;
-            SetMoving(false);
-            jumpPower = 0;
-            Invoke("Die", 2f);
-        } else {
-            jump = true;
-            float side = Mathf.Sign(enemyPosX - transform.position.x);
-            rb.AddForce(Vector2.left * side * jumpPower, ForceMode2D.Impulse);
-            mouvement = false;
-            Invoke("EnableMouvement", 0.7f);
-            // Color color = new Color(R, G, B, A); /255 because 255 -> 1
-            spr.color = Color.red;
+        if(!isDead){
+            audioManager.PlaySound(knockbackSound);
+            // Update healthbar
+            health--;
+            healthBar.GetComponent<HealthController>().SetHealth(health);
+            // Die by enemy
+            if(health <= 0){
+                audioManager.PlaySound(deathSound);
+                isDead = true;
+                SetMoving(false);
+                jumpPower = 0;
+                Invoke("Die", 2f);
+            } else {
+                jump = true;
+                float side = Mathf.Sign(enemyPosX - transform.position.x);
+                rb.AddForce(Vector2.left * side * jumpPower, ForceMode2D.Impulse);
+                mouvement = false;
+                Invoke("EnableMouvement", 0.7f);
+                // Color color = new Color(R, G, B, A); /255 because 255 -> 1
+                spr.color = Color.red;
+            }
         }
     }
 
