@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour {
     public float maxSpeed = 5f;
     public bool grounded;
     public float jumpPower = 6.5f;
-    public int maxHealth = 6; // it have to be a pair number (10 max)
+    public int maxHealth = 8; // it have to be a pair number (10 max)
     public GameObject healthBar;
     public GameObject arrowCounter;
 

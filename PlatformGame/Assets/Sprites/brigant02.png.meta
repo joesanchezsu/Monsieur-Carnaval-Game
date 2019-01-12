@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1c3fb6c20abb14aaeba5c660df8487d7
-timeCreated: 1547138939
+timeCreated: 1547255324
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -152,10 +152,10 @@ TextureImporter:
       name: brigant02_4
       rect:
         serializedVersion: 2
-        x: 1147
-        y: 1528
-        width: 338
-        height: 1543
+        x: 1084
+        y: 1532
+        width: 418
+        height: 505
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,9 +309,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 129
-        y: 1025
-        width: 280
-        height: 1016
+        y: 1534
+        width: 291
+        height: 507
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,9 +322,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 648
-        y: 1528
-        width: 253
-        height: 511
+        y: 1534
+        width: 256
+        height: 505
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -7,8 +7,8 @@ public class BackgroundController : MonoBehaviour {
 
 	public bool PopUpActive {get; set;}
 	public bool GameOverActive{get; set;}
-	private float fog = 0.5f; // decrease killing enemies and getting checkpoints
-	private float decrease = 0.1f;
+	private float fog = 0.5f; // decrease killing enemies
+	private float decrease = 0.03f;
 	
 	// Use this for initialization
 	void Start () {
