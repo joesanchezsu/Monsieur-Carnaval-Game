@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour {
         health = maxHealth;
         healthBar.GetComponent<HealthController>().SetHealth(health);
         restart = GetComponent<Restart>();
-        posLastCheckpoint = new Vector3(-14f, -1.5f, 0);
+        posLastCheckpoint = new Vector3(-15.21f, -3.56f, 0);
     }
 
     // Update is called once per frame
