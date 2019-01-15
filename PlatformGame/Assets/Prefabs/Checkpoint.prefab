@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305855638120762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.52, z: 0}
+  m_LocalPosition: {x: 0, y: 0.52, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4150868224289192}
@@ -64,8 +64,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1719620065171004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.63, y: 2.34, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -103.44, y: -0.93500006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4113429603630042}
@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa188b5f1e3da407eb53c4cd05f248cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chestOpenSound: ChestOpen
+  rewardGotSound: RewardGot
   chestOpen: {fileID: 21300000, guid: 46bae954f3d574684a10e723f33a8361, type: 3}
   heart: {fileID: 21300714, guid: 2ccbe3d50fb104ee48dac1bad55bd657, type: 3}
   arrow: {fileID: 21300054, guid: d1b7f7b75035841a08619dc41ebba6b6, type: 3}
