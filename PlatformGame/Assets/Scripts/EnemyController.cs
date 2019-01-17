@@ -21,7 +21,6 @@ public class EnemyController : MonoBehaviour {
 	private bool isDead = false;
 	private BackgroundController bgc;
 	private float forceArrowImpact = 300;
-	private Vector3 initialPos;
 	AudioManager audioManager;
 
 	void Start () {
@@ -33,7 +32,6 @@ public class EnemyController : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 		bgc = background.GetComponent<BackgroundController>();
-		initialPos = gameObject.transform.position;
 	}
 	
 	void FixedUpdate () {

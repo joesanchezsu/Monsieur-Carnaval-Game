@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour {
         health = maxHealth;
         healthBar.GetComponent<HealthController>().SetHealth(health);
         restart = GetComponent<Restart>();
-        posLastCheckpoint = new Vector3(-15.21f, -3.56f, 0);
+        posLastCheckpoint = gameObject.transform.position; //new Vector3(-15.21f, -3.56f, 0);
     }
 
     // Update is called once per frame
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour {
         }
 
 		// To Shoot an arrow
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDead) {
+        if (SceneManager.GetActiveScene().name == "SecondLevel" && Input.GetKeyDown(KeyCode.LeftShift) && !isDead) {
 			if(anim.GetBool("arrow") == false){
                 if(arrowCounter.GetComponent<ArrowCounter>().GetNumOfArrows() > 0){
 				    anim.SetBool("arrow", true);

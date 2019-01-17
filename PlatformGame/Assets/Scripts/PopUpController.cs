@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class PopUpController : MonoBehaviour {
 
@@ -35,5 +36,7 @@ public class PopUpController : MonoBehaviour {
 		background.GetComponent<BackgroundController>().PopUpActive = false;
 		video.Stop();
 		gameObject.SetActive(false);
+		 SceneManager.LoadScene("SecondLevel", LoadSceneMode.Single);
+
 	}
 }
