@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour {
         // else go home
 
 		// To Jump (and double jump)
-        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             if (grounded) {
                 jump = true;
                 doubleJump = true;
@@ -88,11 +88,11 @@ public class PlayerController : MonoBehaviour {
         }
 
 		// To Shoot an arrow
-        if (Input.GetKeyDown(KeyCode.Space) && !isDead) {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDead) {
 			if(anim.GetBool("arrow") == false){
                 if(arrowCounter.GetComponent<ArrowCounter>().GetNumOfArrows() > 0){
 				    anim.SetBool("arrow", true);
-				    Invoke("Shoot", 0.60f); // shoot an arrow after 0.41 seconds
+				    Invoke("Shoot", 0.30f); // shoot an arrow after 0.41 seconds
                 }
 			}
         }
@@ -220,7 +220,9 @@ public class PlayerController : MonoBehaviour {
     void Die(){
         // Change music if possible **
         // Show Game Over pop up
-        gameOverPopUp.GetComponent<GameOverController>().ShowPopUp();
+        if(gameOverPopUp != null){
+            gameOverPopUp.GetComponent<GameOverController>().ShowPopUp();
+        }
     }
 
 	void EnableMouvement(){

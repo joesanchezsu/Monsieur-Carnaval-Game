@@ -9,7 +9,7 @@ public class ArrowCounter : MonoBehaviour {
 	public Image dozens, units;
 	public Sprite[] digits;
 	private int dozensDigit, unitsDigit;
-	private int recharge = 5;
+	private int recharge = 10;
 	
 	// Update is called once per frame
 	void Update () {
