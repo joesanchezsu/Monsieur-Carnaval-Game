@@ -42,12 +42,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Snow
+    uniqueID: 649315197
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemies
+    uniqueID: 4085464003
     locked: 0
   - name: Player
     uniqueID: 3613051113
     locked: 0
-  - name: Enemies
-    uniqueID: 4085464003
+  - name: Interface
+    uniqueID: 2553447261
     locked: 0
