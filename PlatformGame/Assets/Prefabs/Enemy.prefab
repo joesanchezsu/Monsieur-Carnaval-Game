@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1202447382037884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.767, y: 3.42, z: -10}
+  m_LocalPosition: {x: 145.13, y: -1.15, z: -10}
   m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_Children:
   - {fileID: 224199075953715352}
@@ -177,7 +177,6 @@ MonoBehaviour:
   type: 0
   pointsUp: {fileID: 1979927774480212}
   background: {fileID: 0}
-  player: {fileID: 0}
 --- !u!212 &212015938133278096
 SpriteRenderer:
   m_ObjectHideFlags: 1

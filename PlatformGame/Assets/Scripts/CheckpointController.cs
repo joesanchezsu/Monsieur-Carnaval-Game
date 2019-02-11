@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckpointController : MonoBehaviour {
 
@@ -48,9 +49,9 @@ public class CheckpointController : MonoBehaviour {
 				reward.transform.Translate(0f, 0.07f, 0f);
 				
 				if(switchReward < 10){
-					reward.transform.localScale = new Vector3(0.6f, 0.6f, 1f);
+					reward.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
 					reward.GetComponent<SpriteRenderer>().sprite = heart;
-				} else if(switchReward < 20){
+				} else if(switchReward < 20 && SceneManager.GetActiveScene().name == "SecondLevel"){
 					reward.transform.localScale = new Vector3(1.3f, 1.3f, 1f);
 					reward.GetComponent<SpriteRenderer>().sprite = arrow;
 				} else {
@@ -60,13 +61,19 @@ public class CheckpointController : MonoBehaviour {
 				getReward++;
 				if(getReward < 30){
 					if(rewardWon > 0){
-						reward.transform.localScale = new Vector3(0.6f, 0.6f, 1f);
+						reward.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
 						reward.GetComponent<SpriteRenderer>().sprite = heart;
 						heartWon = true;
 					} else {
-						reward.transform.localScale = new Vector3(1.3f, 1.3f, 1f);
-						reward.GetComponent<SpriteRenderer>().sprite = arrow;
-						arrowWon = true;
+						if (SceneManager.GetActiveScene().name == "SecondLevel"){
+							reward.transform.localScale = new Vector3(1.3f, 1.3f, 1f);
+							reward.GetComponent<SpriteRenderer>().sprite = arrow;
+							arrowWon = true;
+						} else {
+							reward.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+							reward.GetComponent<SpriteRenderer>().sprite = heart;
+							heartWon = true;
+						}
 					}
 				} else if(getReward < 70){
 					reward.transform.Rotate(0f, 0f, 20f);

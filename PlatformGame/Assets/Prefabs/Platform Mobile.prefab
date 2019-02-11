@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980356339725070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4758160775967064}
@@ -81,7 +81,7 @@ Transform:
   m_GameObject: {fileID: 1330384480950072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 4758160775967064}
   m_RootOrder: 1
@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1766358690752696}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.428862, y: -0.6422298, z: 0}
+  m_LocalPosition: {x: -0.29, y: -0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4395885266035488}
@@ -125,15 +125,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.028286, y: 0.3103752}
-      - {x: 0.92229366, y: 0.49464417}
-      - {x: -0.87631655, y: 0.50128007}
-      - {x: -0.9833646, y: 0.39992166}
-      - {x: -1.00384, y: 0.2427361}
+    - - {x: 0.92533445, y: 0.15897626}
+      - {x: 0.9344058, y: 0.2887413}
+      - {x: -0.9550438, y: 0.28326553}
+      - {x: -0.97730875, y: 0.2606346}
+      - {x: -0.9553919, y: 0.12767285}
       - {x: -0.9567074, y: 0.09550384}
-      - {x: -0.81835604, y: -0.35156584}
-      - {x: -0.7177501, y: -0.40306902}
-      - {x: 0.75722885, y: -0.5027311}
+      - {x: -0.84257984, y: -0.26678234}
+      - {x: -0.48156735, y: -0.39095694}
+      - {x: 0.49076656, y: -0.38161212}
+      - {x: 0.8048258, y: -0.2970298}
       - {x: 0.9646044, y: 0.06573892}
 --- !u!114 &114171010295610286
 MonoBehaviour:
@@ -160,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4395885266035488}
-  speed: 1
+  speed: 2
 --- !u!212 &212359059773437486
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -193,7 +194,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 16cd2325f43b949d5b67e45e5bfd6e2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0fd76ea99772846938a80fadbc585394, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

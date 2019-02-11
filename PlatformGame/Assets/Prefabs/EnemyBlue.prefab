@@ -189,7 +189,6 @@ MonoBehaviour:
   type: 1
   pointsUp: {fileID: 1855925716889096}
   background: {fileID: 0}
-  player: {fileID: 0}
 --- !u!212 &212094205574061496
 SpriteRenderer:
   m_ObjectHideFlags: 1

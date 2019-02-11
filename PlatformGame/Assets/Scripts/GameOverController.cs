@@ -13,6 +13,8 @@ public class GameOverController : MonoBehaviour {
 
 	public Sprite spriteYes;
 	public Sprite spriteNo;
+	public Image buttonYes;
+	public Image buttonNo;
 	public Image answer;
 	public Image background;
 	private bool yesSelected = true;
@@ -64,7 +66,9 @@ public class GameOverController : MonoBehaviour {
 	}
 
 	public void SelectYes(bool click){
-		answer.sprite = spriteYes;
+		//answer.sprite = spriteYes;
+		buttonYes.color = new Color(1f, 1f, 1f, 0.5f);
+		buttonNo.color = new Color(1f, 1f, 1f, 0f);
 		yesSelected = true;
 		if(click) {
 			restart = true;
@@ -73,7 +77,9 @@ public class GameOverController : MonoBehaviour {
 	}
 
 	public void SelectNo(bool click){
-		answer.sprite = spriteNo;
+		//answer.sprite = spriteNo;
+		buttonYes.color = new Color(1f, 1f, 1f, 0f);
+		buttonNo.color = new Color(1f, 1f, 1f, 0.5f);
 		yesSelected = false;
 		if(click) {
 			quit = true;

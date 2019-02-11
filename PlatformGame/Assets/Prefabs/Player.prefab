@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1020674188694790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.011, y: -1.49, z: 0}
+  m_LocalPosition: {x: -16.96, y: -6.86, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4785528451352214}
@@ -176,12 +176,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2e7f47e20c8482c8bcf9402ef2966c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseArrow: WhooshArrow
+  knockbackSound: PlayerKnockBack
+  fallSound: PlayerFall
+  deathSound: PlayerDeath
   speed: 75
   maxSpeed: 3
   grounded: 0
-  jumpPower: 7
-  maxHealth: 2
+  jumpPower: 8
+  maxHealth: 8
   healthBar: {fileID: 0}
+  arrowCounter: {fileID: 0}
+  isRespawn: 0
   arrow: {fileID: 50955865320818822, guid: e92fdddcf897641838472058bc7a6871, type: 2}
   gameOverPopUp: {fileID: 0}
 --- !u!212 &212986550006270046

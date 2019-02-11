@@ -19,7 +19,7 @@ TagManager:
   - 
   - Player
   - Enemies
-  - 
+  - Alligator
   - 
   - 
   - 
@@ -53,6 +53,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3613051113
+    locked: 0
+  - name: Alligator
+    uniqueID: 1284876975
     locked: 0
   - name: Interface
     uniqueID: 2553447261

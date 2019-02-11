@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckGround : MonoBehaviour {
 
@@ -17,7 +18,9 @@ public class CheckGround : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col){
 		if(col.gameObject.tag == "Platform"){
 			rb.velocity = new Vector3(0f, 0f, 0f);
-			player.transform.parent = col.transform; // this object (platform) becomes his father and he can move with
+			if(SceneManager.GetActiveScene().name != "FinalLevel"){
+				player.transform.parent = col.transform; // this object (platform) becomes his father and he can move with
+			}			
 			player.grounded = true;
 		}
 	}
@@ -27,7 +30,9 @@ public class CheckGround : MonoBehaviour {
 			player.grounded = true;
 		}
 		if(col.gameObject.tag == "Platform"){
-			player.transform.parent = col.transform; // this object (platform) becomes his father and he can move with
+			if(SceneManager.GetActiveScene().name != "FinalLevel"){
+				player.transform.parent = col.transform; // this object (platform) becomes his father and he can move with
+			}
 			player.grounded = true;
 		}
 	}

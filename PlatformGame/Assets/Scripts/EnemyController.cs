@@ -31,7 +31,9 @@ public class EnemyController : MonoBehaviour {
 
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
-		bgc = background.GetComponent<BackgroundController>();
+		if(background != null){
+			bgc = background.GetComponent<BackgroundController>();
+		}
 	}
 	
 	void FixedUpdate () {
@@ -65,7 +67,9 @@ public class EnemyController : MonoBehaviour {
 				anim.SetBool("crushed", true);
 				Invoke("Fall", 0.25f); // Fall after 0.25 seconds
 				col.SendMessage("EnemyJump"); // Rebound
-				bgc.SetFogByEnemy(); // decrease fog level 
+				if(background != null){
+					bgc.SetFogByEnemy(); // decrease fog level 
+				}
 			}
 			// Knockback for player and health reduction 
 			else {
@@ -79,13 +83,16 @@ public class EnemyController : MonoBehaviour {
 				audioManager.PlaySound(arrowImpactSound);
 				anim.SetBool("hit", true);
 				Invoke("Fall", 0.25f);
+				
 				if(col.transform.position.x < gameObject.transform.position.x){
 					rb.AddForce(Vector2.right * forceArrowImpact);
 				} else {
 					rb.AddForce(Vector2.right * -forceArrowImpact);
 				}
 				
-				bgc.SetFogByEnemy();
+				if(background != null){
+					bgc.SetFogByEnemy(); // decrease fog level 
+				}
 			}
 		}
 	}

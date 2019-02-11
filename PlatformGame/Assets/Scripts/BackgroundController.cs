@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BackgroundController : MonoBehaviour {
 
@@ -22,8 +23,8 @@ public class BackgroundController : MonoBehaviour {
 		if(PopUpActive){
 			GetComponent<Image>().color = new Color(0.2f, 0.2f, 0.2f, 0.5f);
 		} else if(GameOverActive){
-			GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
-		} else {
+			GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.5f);
+		} else if (SceneManager.GetActiveScene().name == "SecondLevel"){
 			GetComponent<Image>().color = new Color(1f, 1f, 1f, fog);
 		} 
 	}

@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
 	string fallSound = "PlayerFall";
     [SerializeField]
 	string deathSound = "PlayerDeath";
+    [SerializeField]
+	string gameOverSound = "GameOver";
 
     public float speed = 2f;
     public float maxSpeed = 5f;
@@ -22,6 +24,8 @@ public class PlayerController : MonoBehaviour {
     public int maxHealth = 8; // it have to be a pair number (10 max)
     public GameObject healthBar;
     public GameObject arrowCounter;
+    public bool isRespawn = true;
+    public GameObject king;
 
     //public Text lifeText;
     //public GameObject ennemy;
@@ -30,6 +34,7 @@ public class PlayerController : MonoBehaviour {
     //public Vector3 positionEnnemy = new Vector3(8, 6, 0);
     public Rigidbody2D arrow;
     public GameObject gameOverPopUp;
+    public bool isDead = false;
 
 	private Rigidbody2D rb;
     private Animator anim;
@@ -38,8 +43,6 @@ public class PlayerController : MonoBehaviour {
     private bool doubleJump;
     private bool mouvement = true;
     private int health;
-    private int checkpoint;
-    private bool isDead = false;
     private Restart restart;
     private Vector3 posLastCheckpoint;
     AudioManager audioManager;
@@ -47,6 +50,7 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start() {
         audioManager = AudioManager.instance;
+        audioManager.PlaySound("Music");
 		if(audioManager == null){
 			Debug.LogError("No audiomanager found!");
 		}
@@ -74,6 +78,8 @@ public class PlayerController : MonoBehaviour {
         if(gameOverPopUp.GetComponent<GameOverController>().GetRestartLevel()){
             SetMoving(true);
             restart.Replay = true;
+        } else if(gameOverPopUp.GetComponent<GameOverController>().GetQuitLevel()){
+            restart.GoHome = true;
         }
         // else go home
 
@@ -89,7 +95,7 @@ public class PlayerController : MonoBehaviour {
         }
 
 		// To Shoot an arrow
-        if (SceneManager.GetActiveScene().name == "SecondLevel" && Input.GetKeyDown(KeyCode.LeftShift) && !isDead) {
+        if (SceneManager.GetActiveScene().name != "FirstLevel" && Input.GetKeyDown(KeyCode.C) && !isDead) {
 			if(anim.GetBool("arrow") == false){
                 if(arrowCounter.GetComponent<ArrowCounter>().GetNumOfArrows() > 0){
 				    anim.SetBool("arrow", true);
@@ -152,15 +158,25 @@ public class PlayerController : MonoBehaviour {
 
     // Die by falling down
     void OnBecameInvisible() {
-        audioManager.PlaySound(fallSound);
-        health -= 2;
-        if(healthBar != null){
-            healthBar.GetComponent<HealthController>().SetHealth(health);
+        if(SceneManager.GetActiveScene().name == "SecondLevel"){
+            DeadByFalling();
         }
-        if (health <= 0){ // Game over
-            Die();
-        } else { // checkpoint
-            Invoke("Respawn", 1f);
+    }
+
+    public void DeadByFalling(){
+        if(!isDead){
+            audioManager.PlaySound(fallSound);
+            health -= 2;
+            if(healthBar != null){
+                healthBar.GetComponent<HealthController>().SetHealth(health);
+            }
+            if (health <= 0){ // Game over
+                gameObject.transform.position = new Vector3(posLastCheckpoint.x, posLastCheckpoint.y, -100f); // to avoid to die forever when falling
+                isDead = true;
+                Invoke("Die", 1f);
+            } else { // checkpoint
+                Invoke("Respawn", 1f);
+            }
         }
     }
 
@@ -171,6 +187,12 @@ public class PlayerController : MonoBehaviour {
         Invoke("EnableMouvement", 1f);
         Color colorRespawn = new Color(1f, 1f, 1f, 0.5f); //255 because 255 -> 1
         spr.color = colorRespawn;
+        isRespawn = true;
+        Invoke("NotMoreRespawn", 1f);
+    }
+
+    void NotMoreRespawn(){
+        isRespawn = false;
     }
 
 	void Shoot(){
@@ -194,7 +216,13 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void EnemyKnockBack(float enemyPosX){
-        if(!isDead){
+        bool hurt = false;
+        if(SceneManager.GetActiveScene().name == "FinalLevel" && !isDead && !king.GetComponent<KingController>().isDead){
+            hurt = true;
+        } else if(SceneManager.GetActiveScene().name != "FinalLevel" && !isDead){
+            hurt = true;
+        }
+        if(hurt){
             audioManager.PlaySound(knockbackSound);
             // Update healthbar
             health--;
@@ -222,7 +250,9 @@ public class PlayerController : MonoBehaviour {
         // Change music if possible **
         // Show Game Over pop up
         if(gameOverPopUp != null){
+            audioManager.StopSound("Music");
             gameOverPopUp.GetComponent<GameOverController>().ShowPopUp();
+            audioManager.PlaySound(gameOverSound);
         }
     }
 
